@@ -82,6 +82,7 @@ const getSingleBook = (id) => __awaiter(void 0, void 0, void 0, function* () {
 const updateBook = (id, payload, 
 // eslint-disable-next-line no-unused-vars
 userData) => __awaiter(void 0, void 0, void 0, function* () {
+    // console.log('checkign from service', id, payload);
     const result = yield book_model_1.Book.findOneAndUpdate({ _id: id }, payload, {
         new: true,
     });

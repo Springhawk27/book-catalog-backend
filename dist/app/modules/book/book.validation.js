@@ -24,7 +24,7 @@ const updateBookZodSchema = zod_1.z.object({
         author: zod_1.z.string({}).optional(),
         genre: zod_1.z.string({}).optional(),
         publicationDate: zod_1.z.number({}).optional(),
-        reviews: zod_1.z.number({}).optional(),
+        reviews: zod_1.z.array(zod_1.z.string()).optional(),
     }),
 });
 exports.BookValidation = {
