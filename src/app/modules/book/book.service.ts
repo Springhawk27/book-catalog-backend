@@ -60,6 +60,7 @@ const getAllBooks = async (
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
+  // console.log(result);
 
   const count = await Book.countDocuments(whereConditions);
 
@@ -79,13 +80,15 @@ const getSingleBook = async (id: string): Promise<IBook | null> => {
   return result;
 };
 
-// update cow service
+// update book service
 const updateBook = async (
   id: string,
   payload: Partial<IBook>,
   // eslint-disable-next-line no-unused-vars
   userData: JwtPayload | null
 ): Promise<IBook | null> => {
+  // console.log('checkign from service', id, payload);
+
   const result = await Book.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   });

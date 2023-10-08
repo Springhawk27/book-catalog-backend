@@ -1,8 +1,7 @@
 import cors from 'cors';
 import express, { Application, NextFunction, Request, Response } from 'express';
-import globalErrorHandler from './app/middlewares/globalErrorHandler';
-
 import httpStatus from 'http-status';
+import globalErrorHandler from './app/middlewares/globalErrorHandler';
 // eslint-disable-next-line no-unused-vars
 import cookieParser from 'cookie-parser';
 import routes from './app/routes';
@@ -16,10 +15,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/v1/', routes);
-
-app.get('/', async (req: Request, res: Response) => {
-  res.send('Working Successfully!');
-});
 
 // global error handler
 app.use(globalErrorHandler);
